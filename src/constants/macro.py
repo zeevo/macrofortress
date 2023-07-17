@@ -1,0 +1,5 @@
+CURSOR_LEFT = "\t\tKEYBOARD_CURSOR_LEFT\n\tEnd of group\n"
+CURSOR_RIGHT = "\t\tKEYBOARD_CURSOR_RIGHT\n\tEnd of group\n"
+CURSOR_UP = "\t\tKEYBOARD_CURSOR_UP\n\tEnd of group\n"
+CURSOR_DOWN = "\t\tKEYBOARD_CURSOR_DOWN\n\tEnd of group\n"
+MINE = "\t\tSELECT\n\tEnd of group\n\t\tSELECT\n\tEnd of group\n"

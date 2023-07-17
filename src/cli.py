@@ -2,7 +2,7 @@ import logging
 
 import click
 
-from src.commands.hello_world import hello_world
+from src.commands.cmd_map import cmd_map
 
 logger = logging.getLogger(__name__)
 
@@ -12,4 +12,4 @@ def cli():
     pass
 
 
-cli.add_command(hello_world, "hello")
+cli.add_command(cmd_map, "map")
