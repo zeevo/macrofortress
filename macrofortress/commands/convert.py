@@ -1,12 +1,13 @@
 import logging
 from os import path
+from typing import Annotated
 
-import click
 import cv2
+import typer
 
-from src.constants.help import GREYSCALE_HELP_MESSAGE
-from src.constants.logging import LOG_FORMAT
-from src.constants.macro import (
+from constants.help import GREYSCALE_HELP_MESSAGE
+from constants.logging import LOG_FORMAT
+from constants.macro import (
     CURSOR_DOWN,
     CURSOR_LEFT,
     CURSOR_RIGHT,
@@ -19,10 +20,7 @@ logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 
 
-@click.command()
-@click.argument("map")
-@click.option("-o", "--output", type=str, required=False, help="Output macro filename")
-def cmd_map(map, output):
+def convert(map: str, output: Annotated[str, typer.Option()] = ""):
     if not path.exists(map):
         logger.info(map + " does not appear to be a valid path")
         logger.info("Exiting...")

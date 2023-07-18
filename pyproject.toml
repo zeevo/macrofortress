@@ -7,10 +7,10 @@ name = "macrofortress"
 version = "0.0.1"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["click>=8.1.3", "opencv-python>=4.7.0.68"]
+dependencies = ["typer>=0.9.0", "opencv-python>=4.7.0.68"]
 
 [project.scripts]
-macrofortress = "src.cli:cli"
+macrofortress = "macrofortress.main:app"
 
 [project.optional-dependencies]
 dev = [
@@ -26,7 +26,7 @@ exclude = [".env", ".venv", "venv", "notebooks"]
 select = ["E", "F", "I", "W"]
 
 [tool.coverage.paths]
-source = ["src"]
+source = ["macrofortress"]
 
 [tool.coverage.run]
 branch = true

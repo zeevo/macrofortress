@@ -1,4 +1,5 @@
-.PHONY: install clean lint format test test-cov
+.PHONY: run install build clean lint format test test-cov
+
 
 ## Install for production
 install:
@@ -9,6 +10,12 @@ install:
 ## Install for development 
 install-dev: install
 	python -m pip install -e ".[dev]"
+
+## Build the project
+build:
+	make lint
+	make test
+	python -m build
 
 ## Delete all temporary files
 clean:
