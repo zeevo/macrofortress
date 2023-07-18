@@ -41,6 +41,8 @@ def convert(map: str, output: Annotated[str, typer.Option()] = ""):
         file_object.write("\n")
         file_object.close()
 
+    start_pos = None
+
     for column in range(PICTURE_COLUMNS):
         for row in range(PICTURE_ROWS):
             if cv_image[row][column] == 143:
@@ -48,6 +50,7 @@ def convert(map: str, output: Annotated[str, typer.Option()] = ""):
 
     if not start_pos:
         logger.info(GREYSCALE_HELP_MESSAGE)
+        exit(1)
 
     start_pos_row = start_pos[0]
     start_pos_column = start_pos[1]
@@ -66,12 +69,12 @@ def convert(map: str, output: Annotated[str, typer.Option()] = ""):
         for column in range(PICTURE_COLUMNS):
             if cv_image[row][column] != 0:
                 with open(formatted_output, "a") as file_object:
-                    file_object.write(MINE)
                     file_object.write(CURSOR_RIGHT)
                     file_object.close()
             else:
                 with open(formatted_output, "a") as file_object:
                     file_object.write(CURSOR_RIGHT)
+                    file_object.write(MINE)
                     file_object.close()
 
             if column == (PICTURE_COLUMNS - 1):
